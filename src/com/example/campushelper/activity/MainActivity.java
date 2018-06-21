@@ -1,17 +1,33 @@
-package com.example.campushelper;
+package com.example.campushelper.activity;
 
-import android.app.Activity;
+import com.example.campushelper.R;
+import com.example.campushelper.dao.CampusHelperOpenHelper;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
+	private CampusHelperOpenHelper dbHelper;
+	private Button btn_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dbHelper = new CampusHelperOpenHelper(this, "CampusHelper.db", null, 1);
+        btn_test=(Button)findViewById(R.id.btn_test);
+        btn_test.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				dbHelper.getWritableDatabase();
+			}
+		});
     }
 
     @Override
