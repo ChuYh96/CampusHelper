@@ -3,6 +3,7 @@
 /*06.21
 1）建立了相关的一些数据模型
 课程表：
+
 	Student //学生：
 		private String StuId;   //学生编号
 		private String StuName; //学生姓名 

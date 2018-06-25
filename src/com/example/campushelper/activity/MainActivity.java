@@ -1,34 +1,47 @@
 package com.example.campushelper.activity;
 
 import com.example.campushelper.R;
-import com.example.campushelper.dao.CampusHelperOpenHelper;
+
 import android.os.Bundle;
+import android.app.Activity;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-
+import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainActivity extends BaseActivity {
-	private CampusHelperOpenHelper dbHelper;
-	private Button btn_test;
+	private DrawerLayout mDrawerLayout = null;
+	private TextView btn_open_draw,btn_more;
+	
+	private String[] data ={"Apple","Banana"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        dbHelper = new CampusHelperOpenHelper(this, "CampusHelper.db", null, 1);
-        btn_test=(Button)findViewById(R.id.btn_test);
-        btn_test.setOnClickListener(new OnClickListener() {
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data);
+        ListView listView = (ListView) findViewById(R.id.list_left_drawer);
+        listView.setAdapter(adapter);
+        
+        btn_open_draw = (TextView) findViewById(R.id.btn_open_draw);
+        btn_open_draw.setOnClickListener(new OnClickListener() {
 			
 			@Override
-			public void onClick(View v) {
+			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				dbHelper.getWritableDatabase();
+				mDrawerLayout.openDrawer(Gravity.LEFT);
 			}
 		});
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,16 +49,5 @@ public class MainActivity extends BaseActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+    
 }

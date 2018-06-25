@@ -1,25 +1,87 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.campushelper.activity.MainActivity" >
+    android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:background="@drawable/main_back" >
 
-    <Button
-        android:id="@+id/btn_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/textView1"
-        android:text="测试" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_back" >
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/btn_open_draw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_drawer" />
+        </FrameLayout>
+
+        <TextView
+            android:background="#ffffff"
+            android:drawableLeft="@drawable/ic_inform"
+            android:drawablePadding="10dp"
+            android:text="通知:"
+            android:textColor="#EA5246"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/txtOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:drawableLeft="@drawable/ic_line"
+            android:drawablePadding="42dp"
+            android:text="欢迎省领导莅临我校            2018.06.23"
+            android:textColor="#FFA500"
+            android:textSize="15sp"
+            android:textStyle="bold|italic" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <include layout="@layout/menu_drawer_left" />
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/main_back"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_head_portrait" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="../这个人很懒，还没有签名" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="15dp"/>
+
+        <ListView
+            android:id="@+id/list_left_drawer"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:divider="#ffffff"
+            android:dividerHeight="0dp" />
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#f8f8ff"
+    android:stretchColumns="*" >
+
+    <TextView
+        android:background="#ffffff"
+        android:drawableLeft="@drawable/ic_usually"
+        android:drawablePadding="10dp"
+        android:text="常用"
+        android:textColor="#EA5246"
+        android:textSize="16sp"
+        android:textStyle="bold|italic" />
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/text_syllabus"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:drawableTop="@drawable/ic_syllabus"
+            android:text="课程表" />
+
+        <TextView
+            android:id="@+id/text_report"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:drawableTop="@drawable/ic_report"
+            android:text="成绩单" />
+
+        <TextView
+            android:id="@+id/text_plan"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:drawableTop="@drawable/ic_plan"
+            android:text="待办事项" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/text_study"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:drawableTop="@drawable/ic_study"
+            android:text="空教室查询" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_message"
+            android:text="校园动态" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_secmaket"
+            android:text="跳蚤市场" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_lost_and_find"
+            android:text="失物招领" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_sign_in"
+            android:text="课堂签到" />
+
+    </TableRow>
+
+</TableLayout>
