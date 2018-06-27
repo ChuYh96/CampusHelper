@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/main_back">
+
+    <include layout="@layout/title" >
+    </include>
+
+    <EditText
+        android:id="@+id/edit_semester"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ems="8"
+        android:hint="2017-2018-2" />
+
+    <EditText
+        android:id="@+id/edit_stu_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edit_semester"
+        android:layout_alignLeft="@+id/edit_semester"
+        android:layout_marginBottom="22dp"
+        android:ems="8"
+        android:hint="请输入学号" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btn_search_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_semester"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="查询" />
+
+</RelativeLayout>

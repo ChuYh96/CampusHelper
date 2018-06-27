@@ -7,36 +7,26 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 public class CampusHelperOpenHelper extends SQLiteOpenHelper {
-	// 学生表
+	//学生表
 	public static final String CREATE_STUDENT = "create table Student ("
-			+ "StuId text primary key, " + "StuName text, " + "StuPsd text, "
-			+ "StuMajor text," + "StuClass text," + "StuGrade text)";
-	// 教师表
-	public static final String CREATE_TEACHER = "create table Teacher ("
-			+ "TeaId text primary key, " + "TeaName text, " + "StuPsd text)";
+			+ "StuId text primary key, " + "StuName text, " + "StuPsd text)";
 	// 课程表
-	public static final String CREATE_COURSE = "create table Course ("
-			+ "CosId text primary key, " + "CosNam text, " + "StuPsd text)";
-	// 成绩表
-	public static final String CREATE_REPORT = "create table Report ("
-			+ "StuId text, " + "CosId text, " + "RepNum text, "
-			//+ "RepTerm text)";
-			+ "RepTerm text, "
-			+ "foreign key (StuId) references Student (StuId), "
-			+ "foreign key (CosId) references Course (CosId))";
-	// 课程表
-	public static final String CREATE_SYLLABUS = "create table Syllabus ("
+	public static final String CREATE_SCHEDULE= "create table Schedule ("
 			+ "StuId text, "
-			+ "CosId text, "
-			+ "TeaId text, "
-			+ "SylWeek text, "// 第几周
-			+ "SylTime text, "// 星期几，几几节
-			//+ "SylAddress text)";// 2206
-			+ "SylAddress text, "// 2206
-			+ "foreign key (StuId) references Student (StuId), "
-			+ "foreign key (TeaId) references Teacher (TeaId), "
-			+ "foreign key (CosId) references Course (CosId))";
-
+			+ "Semester text, "
+			+ "CosName text, "
+			+ "TeaName text, "
+			+ "SchWeek int, "// 第几周
+			+ "SchDay int, "// 星期几
+			+ "SchSection int, "// 几几节
+			+ "SchAddress text, "// 地点2206
+			+ "PRIMARY KEY(StuId,Semester,SchWeek,SchDay,SchSection))";
+	public static final String CREATE_NOTICE = "CREATE TABLE Notice ("
+    + "NotiId      TEXT PRIMARY KEY NOT NULL, "
+    + "NotiTitle   TEXT NOT NULL, "
+    + "NotiContent TEXT NOT NULL, "
+    + "NotiTime    TEXT NOT NULL, "
+    + "NotiOrgan   TEXT NOT NULL)";
 	//private Context mContext;
 	public CampusHelperOpenHelper(Context context, String name,
 			CursorFactory factory, int version) {
@@ -49,10 +39,8 @@ public class CampusHelperOpenHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		db.execSQL(CREATE_STUDENT);
-		db.execSQL(CREATE_TEACHER);
-		db.execSQL(CREATE_COURSE);
-		db.execSQL(CREATE_REPORT);
-		db.execSQL(CREATE_SYLLABUS);
+		db.execSQL(CREATE_SCHEDULE);
+		db.execSQL(CREATE_NOTICE);
 		//Toast.makeText(mContext, "Create", Toast.LENGTH_SHORT).show();
 	}
 

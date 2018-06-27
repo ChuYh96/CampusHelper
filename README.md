@@ -35,3 +35,24 @@
 		
 		private String SylAddress; //授课地点
 2）建立了本应用的数据库，以及相关的一些表
+
+3）对主界面进行了部分规划
+	使用了抽屉布局，第一个子布局是未打开时的界面布局，第二个自布局为打开后的布局
+
+4)对数据库中的表进行一些修改
+
+	课程表Schedule
+	private String StuId;      //学生编号  FK
+	private String Semester    //学期 2017-2018-2
+    private String CosId;      //课程编号  FK
+    private String TeaId;      //教师编号  FK
+    private String SylWeek;    //授课周
+    private String SylTime;    //授课时间
+    private String SylAddress; //授课地点
+
+	Notice 通知
+	NotiId  通知编号
+	NotiTitle 通知标题
+	NotiContent 通知内容
+	NotiTime 通知时间
+	NotiOrgan 通知机构

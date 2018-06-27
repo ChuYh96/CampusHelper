@@ -19,26 +19,25 @@
                 android:id="@+id/btn_open_draw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_drawer" />
+                android:background="@drawable/ic_open_drawer" />
         </FrameLayout>
 
         <TextView
             android:background="#ffffff"
             android:drawableLeft="@drawable/ic_inform"
             android:drawablePadding="10dp"
-            android:text="通知:"
+            android:text="消息:"
             android:textColor="#EA5246"
             android:textSize="16sp"
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/txtOne"
+            android:id="@+id/text_notice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ffffff"
             android:drawableLeft="@drawable/ic_line"
             android:drawablePadding="42dp"
-            android:text="欢迎省领导莅临我校            2018.06.23"
             android:textColor="#FFA500"
             android:textSize="15sp"
             android:textStyle="bold|italic" />
@@ -47,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp" />
 
-        <include layout="@layout/menu_drawer_left" />
+        <include layout="@layout/menu_drawer_mian" />
     </TableLayout>
 
     <LinearLayout
@@ -58,6 +57,7 @@
         android:orientation="vertical" >
 
         <ImageView
+            android:id="@+id/btn_head_portrait"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginBottom="16dp"
@@ -66,6 +66,7 @@
             android:src="@drawable/ic_head_portrait" />
 
         <TextView
+            android:id="@+id/btn_signature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="../这个人很懒，还没有签名" />

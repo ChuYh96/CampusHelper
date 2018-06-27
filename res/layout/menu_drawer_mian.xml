@@ -17,66 +17,77 @@
     <TableRow>
 
         <TextView
-            android:id="@+id/text_syllabus"
+            android:id="@+id/btn_class_schedule"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:clickable="true"
-            android:drawableTop="@drawable/ic_syllabus"
+            android:drawableTop="@drawable/ic_class_schedule"
             android:text="课程表" />
 
         <TextView
-            android:id="@+id/text_report"
+            android:id="@+id/btn_notice"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:clickable="true"
-            android:drawableTop="@drawable/ic_report"
-            android:text="成绩单" />
+            android:drawableTop="@drawable/ic_notice"
+            android:text="校园通知" />
 
         <TextView
-            android:id="@+id/text_plan"
+            android:id="@+id/btn_task_planning"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:clickable="true"
-            android:drawableTop="@drawable/ic_plan"
+            android:drawableTop="@drawable/ic_task_planning"
             android:text="待办事项" />
     </TableRow>
 
     <TableRow>
 
         <TextView
-            android:id="@+id/text_study"
+            android:id="@+id/btn_study_room"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:clickable="true"
-            android:drawableTop="@drawable/ic_study"
+            android:drawableTop="@drawable/ic_study_room"
             android:text="空教室查询" />
 
         <TextView
+            android:id="@+id/btn_campus_message"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableTop="@drawable/ic_message"
+            android:drawableTop="@drawable/ic_campus_message"
             android:text="校园动态" />
 
         <TextView
+            android:id="@+id/btn_flea_market"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableTop="@drawable/ic_secmaket"
+            android:drawableTop="@drawable/ic_flea_market"
             android:text="跳蚤市场" />
     </TableRow>
 
     <TableRow>
 
         <TextView
+            android:id="@+id/btn_lost_and_find"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:drawableTop="@drawable/ic_lost_and_find"
             android:text="失物招领" />
 
         <TextView
+            android:id="@+id/btn_sign_in"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:drawableTop="@drawable/ic_sign_in"
             android:text="课堂签到" />
+         <TextView
+            android:id="@+id/btn_report_card"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:drawableTop="@drawable/ic_report_card"
+            android:text="成绩单" />
 
     </TableRow>
 
