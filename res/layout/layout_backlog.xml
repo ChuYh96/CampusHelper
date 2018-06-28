@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="#dbdbdb"
     android:orientation="vertical" >
-
+	<include layout="@layout/title"/>
     <TextView
         android:id="@+id/btn_new_backlog"
         android:layout_width="match_parent"

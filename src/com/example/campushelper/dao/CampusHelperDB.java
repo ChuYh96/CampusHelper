@@ -47,7 +47,7 @@ public class CampusHelperDB {
 		if(student.getStuId().equals(stuId)&&student.getStuPsd().equals(stuPwd)){
 			return true;
 		}else
-		return false;
+			return false;
 	}
 
 	public List<Schedule> selectSchedule(String data1, String data2) {
@@ -157,6 +157,14 @@ public class CampusHelperDB {
 		values.put("BagContent", backlogContent);
 		values.put("BagTime", backlogTime);
 		db.insert("Backlog", null, values);
+	}
+
+	public void addStudent(String name, String password) {
+		// TODO Auto-generated method stub
+		ContentValues values = new ContentValues();
+		values.put("StuId", name);
+		values.put("StuPsd", password);
+		db.insert("Student", null, values);
 	}
 
 }

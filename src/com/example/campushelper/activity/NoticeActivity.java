@@ -1,5 +1,4 @@
 package com.example.campushelper.activity;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,20 +11,19 @@ import android.widget.ListView;
 
 import com.example.campushelper.R;
 import com.example.campushelper.adapter.NoticeAdapter;
-import com.example.campushelper.dao.CampusHelperDB;
 import com.example.campushelper.model.Notice;
+import com.example.campushelper.service.DBService;
 
 public class NoticeActivity extends BaseActivity {
 	private List<Notice> noticeList = new ArrayList<Notice>();
-	private CampusHelperDB campusHelperDB;
+	private DBService service=new DBService();
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_notice);
-		
-		campusHelperDB = CampusHelperDB.getInstance(this);
-		noticeList=campusHelperDB.selectNoticeInfo();
+		noticeList=service.searchNoticeInfo();
 		
 		NoticeAdapter adapter = new NoticeAdapter(
 				NoticeActivity.this, R.layout.notice_item, noticeList);
@@ -46,5 +44,7 @@ public class NoticeActivity extends BaseActivity {
 				startActivity(intent);
 			}
 		});
+
 	}
+  
 }

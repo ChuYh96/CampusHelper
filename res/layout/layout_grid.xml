@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 	<TextView />
-
+	<include layout="@layout/title"/>"
     <GridView
         android:id="@+id/text_girdview.schedule"
         android:layout_width="match_parent"

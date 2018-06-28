@@ -7,14 +7,18 @@ import com.example.campushelper.R;
 import com.example.campushelper.adapter.AbsGridAdapter;
 import com.example.campushelper.dao.CampusHelperDB;
 import com.example.campushelper.model.Schedule;
+import com.example.campushelper.service.DBService;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class ScheduleShowActivity extends Activity {
 	private Spinner spinner;
@@ -28,10 +32,9 @@ public class ScheduleShowActivity extends Activity {
     private List<String> dataList;
 
     private ArrayAdapter<String> spinnerAdapter;
-    private CampusHelperDB campusHelperDB;
     private List<Schedule> scheduleList = new ArrayList<Schedule>();
     private Schedule schedule;
-    
+    private DBService service=new DBService();
 	public static void actionStart(Context context, String semester,
 			String stuId) {
 		Intent intent = new Intent(context, ScheduleShowActivity.class);
@@ -55,6 +58,7 @@ public class ScheduleShowActivity extends Activity {
         spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, dataList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
+        
     }
 
     public void fillStringArray() {
@@ -62,8 +66,7 @@ public class ScheduleShowActivity extends Activity {
     	Intent intent = getIntent();
 		String semester = intent.getStringExtra("semester");
 		String stuId = intent.getStringExtra("stuId");
-		campusHelperDB = CampusHelperDB.getInstance(this);
-		scheduleList = campusHelperDB.selectSchedule(semester, stuId);
+		scheduleList = service.searchScheduleInfo(semester, stuId);
 		for(int i=0;i<6;i++)
 			for(int j=0;j<7;j++)
 				contents[i][j]="";

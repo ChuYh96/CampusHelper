@@ -6,6 +6,7 @@ import java.util.TimeZone;
 import com.example.campushelper.R;
 import com.example.campushelper.R.id;
 import com.example.campushelper.dao.CampusHelperDB;
+import com.example.campushelper.service.DBService;
 
 import android.os.Bundle;
 import android.content.Intent;
@@ -20,14 +21,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends BaseActivity {
+	private DBService service=new DBService();
 	private DrawerLayout mDrawerLayout = null;
-	private CampusHelperDB campusHelperDB;
 	private TextView btn_open_draw;
 	private TextView text_course;
 	private TextView btn_class_schedule;// 课程表
 	private TextView btn_notice;// 成绩单
 	private TextView btn_backlog;
-	private String[] data = { "Apple", "Banana" };
+	private String[] data = { "我的收藏", "我的足迹","系统设置", "更改密码" };
 	private static String mWay;
 	private String Semester = "2017-2018-2";
 	private String Week = "10";
@@ -39,10 +40,8 @@ public class MainActivity extends BaseActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		campusHelperDB = CampusHelperDB.getInstance(this);
 		String Day = getData();
-		String weekDay = campusHelperDB.selectWeekDay(stuId, Semester, Week,
-				Day);
+		String weekDay = service.courseSearch(stuId, Semester, Week,Day);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, data);
 		ListView listView = (ListView) findViewById(R.id.list_left_drawer);

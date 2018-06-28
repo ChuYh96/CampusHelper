@@ -2,7 +2,9 @@ package com.example.campushelper.activity;
 
 import com.example.campushelper.R;
 import com.example.campushelper.dao.CampusHelperDB;
+import com.example.campushelper.service.DBService;
 
+import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,8 +17,8 @@ import android.widget.Toast;
 
 public class LoginActivity extends BaseActivity {
 	private Button btn_login;
-	private CampusHelperDB campusHelperDB;
 	private EditText editStuId, editStuPwd;
+	private DBService service;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -26,7 +28,6 @@ public class LoginActivity extends BaseActivity {
 		btn_login=(Button)findViewById(R.id.btn_login);
 		editStuId=(EditText)findViewById(R.id.edit_login_stu_id);
 		editStuPwd=(EditText)findViewById(R.id.edit_login_stu_pwd);
-		campusHelperDB = CampusHelperDB.getInstance(this);
 		btn_login.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -34,7 +35,10 @@ public class LoginActivity extends BaseActivity {
 				// TODO Auto-generated method stub
 				String stuId= editStuId.getText().toString();
 				String stuPwd= editStuPwd.getText().toString();
-				Boolean result = campusHelperDB.searchStuPwd(stuId,stuPwd);
+				
+				service= new DBService();
+				Boolean result = service.loginVerify(stuId, stuPwd);
+				
 				if(result){
 					Intent intent = new Intent(LoginActivity.this,MainActivity.class);
 					startActivity(intent);
