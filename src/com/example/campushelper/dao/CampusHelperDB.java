@@ -3,10 +3,12 @@ package com.example.campushelper.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.campushelper.model.Backlog;
 import com.example.campushelper.model.Notice;
 import com.example.campushelper.model.Schedule;
 import com.example.campushelper.model.Student;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -105,12 +107,56 @@ public class CampusHelperDB {
 						.getColumnIndex("NotiId")));
 				notice.setNotiTitle(cursor.getString(cursor
 						.getColumnIndex("NotiTitle")));
+				notice.setNotiContent(cursor.getString(cursor
+						.getColumnIndex("NotiContent")));
 				notice.setNotiTime(cursor.getString(cursor
 						.getColumnIndex("NotiTime")));
+				notice.setNotiOrgan(cursor.getString(cursor
+						.getColumnIndex("NotiOrgan")));
 				list.add(notice);
 			} while (cursor.moveToNext());
 		}
 		return list;
+	}
+
+	public List<Backlog> selectBacklogInfo() {
+		// TODO Auto-generated method stub
+		List<Backlog> list= new ArrayList<Backlog>();
+		Cursor cursor = db.rawQuery("select * from Backlog", null);
+		if (cursor.moveToFirst()) {
+			do {
+				Backlog backlog = new Backlog();
+				backlog.setBagId(cursor.getInt(cursor
+						.getColumnIndex("BagId")));
+				backlog.setBagContent(cursor.getString(cursor
+						.getColumnIndex("BagContent")));
+				backlog.setBagTime(cursor.getString(cursor
+						.getColumnIndex("BagTime")));
+				list.add(backlog);
+			} while (cursor.moveToNext());
+		}
+		return list;
+	}
+
+	public void ChangBacklog(String bagId, String bagContent, String bagTime) {
+		// TODO Auto-generated method stub
+		ContentValues values = new ContentValues();
+		values.put("BagContent", bagContent);
+		values.put("BagTime", bagTime);
+		db.update("Backlog", values, "BagId=?", new String[]{bagId});
+	}
+
+	public void DeleteBacklog(String bagId) {
+		// TODO Auto-generated method stub
+		db.delete("Backlog", "BagId=?", new String[]{bagId});
+	}
+
+	public void addBacklog(String backlogContent, String backlogTime) {
+		// TODO Auto-generated method stub
+		ContentValues values = new ContentValues();
+		values.put("BagContent", backlogContent);
+		values.put("BagTime", backlogTime);
+		db.insert("Backlog", null, values);
 	}
 
 }

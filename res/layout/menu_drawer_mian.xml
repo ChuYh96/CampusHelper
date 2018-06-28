@@ -33,7 +33,7 @@
             android:text="校园通知" />
 
         <TextView
-            android:id="@+id/btn_task_planning"
+            android:id="@+id/btn_backlog"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:clickable="true"

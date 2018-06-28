@@ -27,6 +27,8 @@
         </activity>
         <activity android:name="com.example.campushelper.activity.ScheduleShowActivity"></activity>
         <activity android:name="com.example.campushelper.activity.NoticeActivity"></activity>
+        <activity android:name="com.example.campushelper.activity.NoticeShowActivity"></activity>
+        <activity android:name="com.example.campushelper.activity.BacklogActivity"></activity>
     </application>
 
 </manifest>

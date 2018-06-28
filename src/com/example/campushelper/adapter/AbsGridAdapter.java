@@ -1,4 +1,4 @@
-package com.example.campushelper.activity;
+package com.example.campushelper.adapter;
 
 import com.example.campushelper.R;
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#47ec38" />
+
+    <EditText
+        android:id="@+id/text_backlog_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="添加待办内容" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#F5FFFA"
+        android:text="日程提醒:"
+        android:textSize="15dp"/>
+
+    <EditText
+        android:id="@+id/text_backlog_time"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="2018-07-05 08:00" />
+
+</LinearLayout>

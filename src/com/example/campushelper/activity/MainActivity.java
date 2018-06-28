@@ -26,6 +26,7 @@ public class MainActivity extends BaseActivity {
 	private TextView text_course;
 	private TextView btn_class_schedule;// 课程表
 	private TextView btn_notice;// 成绩单
+	private TextView btn_backlog;
 	private String[] data = { "Apple", "Banana" };
 	private static String mWay;
 	private String Semester = "2017-2018-2";
@@ -83,6 +84,16 @@ public class MainActivity extends BaseActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MainActivity.this,NoticeActivity.class);
+				startActivity(intent);
+			}
+		});
+		btn_backlog=(TextView)findViewById(R.id.btn_backlog);
+		btn_backlog.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this,BacklogActivity.class);
 				startActivity(intent);
 			}
 		});

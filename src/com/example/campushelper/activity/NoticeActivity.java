@@ -3,7 +3,11 @@ package com.example.campushelper.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.example.campushelper.R;
@@ -27,5 +31,20 @@ public class NoticeActivity extends BaseActivity {
 				NoticeActivity.this, R.layout.notice_item, noticeList);
 		ListView listViewNotice = (ListView) findViewById(R.id.list_view_notice);
 		listViewNotice.setAdapter(adapter);
+		listViewNotice.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Notice notice = noticeList.get(position);
+				Intent intent = new Intent(NoticeActivity.this,NoticeShowActivity.class);
+				intent.putExtra("noticeTitle", notice.getNotiTitle());
+				intent.putExtra("noticeTime", notice.getNotiTime());
+				intent.putExtra("noticeContent", notice.getNotiContent());
+				intent.putExtra("noticeOrganizn", notice.getNotiOrgan());
+				startActivity(intent);
+			}
+		});
 	}
 }

@@ -51,8 +51,15 @@
     private String SylAddress; //授课地点
 
 	Notice 通知
+
 	NotiId  通知编号
 	NotiTitle 通知标题
 	NotiContent 通知内容
 	NotiTime 通知时间
 	NotiOrgan 通知机构
+
+	Backlog 代办事项
+
+	BagId 事项编号
+	BagContent 事项内容
+	BagTime 事项提醒时间
